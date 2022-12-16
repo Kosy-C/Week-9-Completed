@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <%- include('./pages/header.ejs') %>
+    
+  <body>
+    <%- include('./pages/navbar.ejs') %>
+
+    <div class="px-5 justify-content-center align-items-center vh-100 p-5" style="width: 100%;">
+        <div class="row g-5 ">
+          <div class="col-md-4">
+            <img src="<%=`${product.image}`%>"class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%=product.name%></h5>
+                <p class="card-text"><%=product.brand%><span style="color:yellow; font-size: 20px;">*****</span> </p>
+                <p class="card-text"><%=product.category%><span style="color:crimson"></span> </p>
+                <p class="card-text"><%=product.description%></p>
+                <a href="#" class="btn btn-primary"><%=product.price%></a>
+                <a href="/" class="btn btn-primary">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%- include('./pages/footer.ejs') %>
+  </body>
+  
+  </html>

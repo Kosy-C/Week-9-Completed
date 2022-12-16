@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <%- include('./pages/header.ejs') %>
+    
+  <body>
+    <%- include('./pages/navbar.ejs') %>
+
+    <div class="container p-5 text-center">
+        <h1>Product Table</h1>
+    </div>
+    
+    <div class="container w-80">
+        <a href="/addproduct" class="btn btn-sm btn-primary float-end m-4">Add Product</a>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% products.map(function(product){ %>
+                <tr>
+                    <th scope="row"></th>
+                    <td> <img src="<%=`${product.image}`%>"alt="..." width="90px"> </td>
+                    <td><%=product.name%></td>
+                    <td><%=product.price%></td>
+                    <td> 
+                      <a href="/editproduct"><i style="color: yellow;" class="fa-solid fa-pen p-2"> Edit </i></a>
+                      <a href=""><i style="color: red;" class="fa-solid fa-trash fa-danger p-2"> Delete</i></a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+      <%- include('./pages/footer.ejs') %>
+  </body>
+  
+  </html>

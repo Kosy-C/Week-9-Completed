@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./pages/header.ejs') %>
+    <style>
+    .pagination {
+      display: inline-block;
+    }
+    
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <%- include('./pages/navbar.ejs') %>
+      
+        <!-- Background image -->
+        <div
+          class="p-5 text-center bg-image"
+          style="
+            background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+            height: 400px;
+          "
+        >
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white">
+                <h1 class="mb-3">KoKo's Stores</h1>
+                <h4 class="mb-3">Living made easy...</h4>
+                <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+                >Contact Us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Background image -->
+      </header>
+      
+      <main>
+        <div class="container text-center px-4 d-flex justify-content-center align-items-center h-100 p-5">
+          <div class="row align-items-start">
+
+            <!-- foreach loop starts here-->
+
+            <% prods.map(function(product){ %>
+              <div class="col-md-3">
+                <div class="card mb-3">
+                  <img src="<%=`${product.image}`%>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><%=product.name%></h5>
+                    <p class="card-text"><%=product.description%></p>
+                    <a href="#" class="btn btn-primary"><%=product.price%></a>
+                    <a href="<%=`/product/${product._id}` %>" class="btn btn-primary">View</a>
+                    <!-- <a href="/show" class="btn btn-primary">View</a> -->
+                  </div>
+                </div>
+              </div>
+           <% }) %>
+            <!-- foreach end -->
+          </div>
+        </div>
+
+        <div class="pagination">
+          <% for (let i=0; i<noOfPages; i++){%>
+          <a href="<%=`/?pageNum=${i}`%>"><%=i+1%></a>
+          <% }%>
+        </div>
+      </main>
+    
+        <%- include('./pages/footer.ejs') %>
+      
+</body>
+</html>
